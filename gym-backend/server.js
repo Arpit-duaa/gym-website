@@ -20,7 +20,8 @@ db.connect(err=>{
     console.log("Connected");
 });
 
-app.post("/login", (req, res) => {
+
+app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
   const sql = "SELECT * FROM users WHERE username = ?";
@@ -40,3 +41,10 @@ app.post("/login", (req, res) => {
 app.listen(5000,()=>{
     console.log("Server is running on http://localhost:5000");
 })
+
+const path = require('path');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
+

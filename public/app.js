@@ -15,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit",async function (e
 
         const data = await res.json();
 
-        if(res.oj && data.success){
+        if(res.ok && data.success){
             window.location.href = "index.html";
         }
         else{
